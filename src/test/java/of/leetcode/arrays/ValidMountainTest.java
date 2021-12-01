@@ -1,4 +1,4 @@
-package of.leetcode;
+package of.leetcode.arrays;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,34 +9,35 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CheckIfNAndItsDoubleExistTest {
+public class ValidMountainTest {
 	private static Stream<Arguments> provideValidTestData () {
 		return Stream.of (
-			Arguments.of (new int[]{10, 2, 5, 3}),
-			Arguments.of (new int[]{0, 0})
+			Arguments.of (new int[]{0, 3, 2, 1}),
+			Arguments.of (new int[]{0, 1, 2, 4, 2, 1})
 		);
 	}
 
 	private static Stream<Arguments> provideInvalidTestData () {
 		return Stream.of (
-			Arguments.of (new int[]{3, 1, 7, 11}),
-			Arguments.of (new int[]{-2, 0, 10, -19, 4, 6, -8})
+			Arguments.of (new int[]{2, 1}),
+			Arguments.of (new int[]{3, 5, 5}),
+			Arguments.of (new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 		);
 	}
 
 	@ParameterizedTest
 	@MethodSource("provideValidTestData")
 	public void testValidData (int[] validTestData) {
-		CheckIfNAndItsDoubleExist checkIfNAndItsDoubleExist = new CheckIfNAndItsDoubleExist ();
-		boolean result = checkIfNAndItsDoubleExist.checkIfExist (validTestData);
+		ValidMountain validMountain = new ValidMountain ();
+		boolean result = validMountain.validMountainArray (validTestData);
 		assertTrue (result);
 	}
 
 	@ParameterizedTest
 	@MethodSource("provideInvalidTestData")
 	public void testInvalidData (int[] invalidTestData) {
-		CheckIfNAndItsDoubleExist checkIfNAndItsDoubleExist = new CheckIfNAndItsDoubleExist ();
-		boolean result = checkIfNAndItsDoubleExist.checkIfExist (invalidTestData);
+		ValidMountain validMountain = new ValidMountain ();
+		boolean result = validMountain.validMountainArray (invalidTestData);
 		assertFalse (result);
 	}
 }
