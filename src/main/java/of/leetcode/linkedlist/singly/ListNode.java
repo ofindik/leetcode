@@ -2,7 +2,7 @@ package of.leetcode.linkedlist.singly;
 
 public class ListNode {
 	public final int value;
-	ListNode next;
+	public ListNode next;
 
 	ListNode (int value) {
 		this.value = value;
